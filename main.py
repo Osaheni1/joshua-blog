@@ -50,7 +50,7 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(1000))
     posts = relationship("BlogPost", back_populates="author")
     comments = relationship("Comment", back_populates="user")
-db.create_all()
+#db.create_all()
 
 class BlogPost(db.Model):
     __tablename__ = "blog_posts"
@@ -66,7 +66,7 @@ class BlogPost(db.Model):
     date = db.Column(db.String(250), nullable=False)
     body = db.Column(db.Text, nullable=False)
     img_url = db.Column(db.String(250), nullable=False)
-db.create_all()
+#db.create_all()
 
 class Comment(db.Model):
     __tablename__ = "comments"
@@ -78,7 +78,7 @@ class Comment(db.Model):
     blog = relationship("BlogPost", back_populates="comments")
     text = db.Column(db.Text, nullable=False)
 
-db.create_all()
+#db.create_all()
 
 
 gravatar = Gravatar(app, size=100, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False, base_url=None)
